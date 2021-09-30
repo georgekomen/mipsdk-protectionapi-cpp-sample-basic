@@ -35,6 +35,7 @@
 #include "action.h"
 #include "mip/common_types.h"
 #include "utils.h"
+#include <Windows.h>
 
 using std::make_shared;
 using std::shared_ptr;
@@ -54,12 +55,14 @@ void printVector(std::vector<uint8_t>& vector);
 
 int main()
 {
+	// Set console code page to UTF-8 so console known how to interpret string data
+	SetConsoleOutputCP(CP_ACP);
 	// Client ID should be the client ID registered in Azure AD for your custom application.
-	std::string clientId = "203f57c2-c9a8-4f70-a1f3-82068b05ebc2";
+	std::string clientId = "<your client id>";
 
 	// Username and password are required in this sample as the oauth2 token is obtained via Python script and MSAL auth.
 	// DO NOT embed credentials for administrative or production accounts. 
-	std::string userName = "Admin2@PIMDemo1.onmicrosoft.com";
+	std::string userName = "<your username>";
 
 	// Create the mip::ApplicationInfo object. 
 
